@@ -1,7 +1,8 @@
 import { NAMESPACE, REHYDRATE_REDUCERS } from './constants';
 import { getNestedState, omitNestedState } from './nestedState';
 import { setShape } from './nestedShape';
-import { combineReducers } from 'redux';
+// import { combineReducers } from 'redux';
+import { combineReducers } from 'redux-loop';
 import { reduceRight, omit } from 'lodash';
 
 const nestReducers = (...routeReducers) => {

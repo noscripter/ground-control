@@ -1,14 +1,16 @@
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { syncHistory, routeReducer } from 'redux-simple-router';
 import { NAMESPACE } from 'modules/constants';
 import DevTools from 'examples/utils/devtools';
 import { isEmpty } from 'lodash';
+import { install, combineReducers } from 'redux-loop';
 import thunk from 'redux-thunk';
 
 export default ({
   additionalReducers,
   enableReduxSimpleRouter,
   enableDevTools,
+  enableReduxLoop,
   enableThunk,
   initialState,
   history,
@@ -21,6 +23,7 @@ export default ({
 
   let storeEnhancers = [];
   if (enableDevTools) storeEnhancers = storeEnhancers.concat(DevTools.instrument());
+  if (enableReduxLoop) storeEnhancers = storeEnhancers.concat(install());
 
   const finalCreateStore = compose(
     applyMiddleware(...middleware),

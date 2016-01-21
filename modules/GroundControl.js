@@ -10,6 +10,7 @@ import loadStateOnServer from './loadStateOnServer';
 import loadStateOnClient from './loadStateOnClient';
 import { FD_DONE, NAMESPACE, ROOT_DEPTH } from './constants';
 import { map, take, drop, partial } from 'lodash';
+import { combineReducers } from 'redux';
 
 class GroundControl extends React.Component {
   static propTypes = {
@@ -21,12 +22,14 @@ class GroundControl extends React.Component {
     initialData: React.PropTypes.object.isRequired,
     reducers: React.PropTypes.object.isRequired,
     serializer: React.PropTypes.func.isRequired,
+    combineReducers: React.PropTypes.func.isRequired,
   };
 
   static defaultProps = {
     initialData: {},
     reducers: {},
     serializer: (route, state) => state,
+    combineReducers: combineReducers,
 
     render(props, routes) {
       const finalCreateElement = partial(createElement, props.store, props.serializer);

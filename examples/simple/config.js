@@ -5,6 +5,7 @@ const enableServerRender = true;
 const enableClientRender = true;
 const enableReduxSimpleRouter = false;
 const enableDevTools = false;
+const enableReduxLoop = false;
 const enableThunk = false;
 const runWebpack = enableClientRender;
 
@@ -14,6 +15,7 @@ export default {
   enableServerRender,
   enableClientRender,
   enableReduxSimpleRouter,
+  enableReduxLoop,
   enableDevTools,
   enableThunk,
   routes,
