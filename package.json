@@ -20,7 +20,8 @@
     "start": "nodemon examples/full/server_.js",
     "simple-example": "nodemon examples/simple/server_.js",
     "test": "babel-tape-runner modules/__tests__/*.js",
-    "prepublish": "npm run clean && npm run build"
+    "prepublish": "npm run snyk-protect; npm run clean && npm run build",
+    "snyk-protect": "snyk protect"
   },
   "authors": [
     "Nick Dreckshage"
@@ -36,7 +37,8 @@
     "lodash": "^3.10.1",
     "react": "^0.14.3",
     "react-router": "^2.0.0-rc5",
-    "redux": "^3.0.5"
+    "redux": "^3.0.5",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "babel": "^6.3.26",
@@ -94,5 +96,6 @@
     "flux",
     "universal",
     "isomorphic"
-  ]
+  ],
+  "snyk": true
 }
